@@ -19,5 +19,9 @@ body::-webkit-scrollbar{
   width: 0;
 }
 
+.sliderNoScroll::-webkit-scrollbar{
+  width: 0;
+}
+
 
 

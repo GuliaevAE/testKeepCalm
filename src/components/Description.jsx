@@ -8,12 +8,13 @@ const Description = ({ image1, image2 }) => {
              justify-between 
              flex-col 
              laptop:flex-row
-             laptop:w-[90%] '>
+             laptop:w-[85%] '>
                 <div className='
                 laptop:w-[50%] 
                 min-h-[350px] 
                 bg-cover 
-                bg-center' src={image1} style={{ backgroundImage: `url(${image1})` }} />
+                bg-center
+                aspect-[5/3]' src={image1} style={{ backgroundImage: `url(${image1})` }} />
                 <div className='
                 laptop:w-[40%]   
                 py-[5%]
@@ -43,7 +44,7 @@ const Description = ({ image1, image2 }) => {
             flex-col-reverse
             mt-[5%] 
             laptop:flex-row
-            laptop:w-[90%] '>
+            laptop:w-[85%] '>
                 <div className='
                 laptop:w-[50%]   
                 my-[auto]
