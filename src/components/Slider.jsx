@@ -65,7 +65,6 @@ const Slider = (props) => {
     return (
         <div className='mt-[10%] w-full    mb-[100px] '
             onDragStart={(e) => e.preventDefault()}
-           
             onMouseDown={(e) => {
                 resetCounter()
                 mouseDownX = e.clientX
@@ -86,9 +85,7 @@ const Slider = (props) => {
             px-[5%] 
             laptop:pl-[10vw]
             font-[600]
-            orchidea
-            '>   Lorem ipsum dolor sit amet</div>
-
+            orchidea'>Lorem ipsum dolor sit amet</div>
             <InView onChange={(inView) => sliderAnimation(inView)}>
                 <div ref={slider} className='mt-[5%]
                  sliderNoScroll
