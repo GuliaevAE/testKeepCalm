@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className='w-[fit-content]  my-[5%] mx-[auto] px-[5%]'>
+      <div className='w-[fit-content] my-[15%]  laptop:my-[5%] mx-[auto] px-[5%]'>
         <span className=' uppercase text-[30px] font-[600] orchidea'>ut aliquip ex ea commodo consequat</span>
       </div>
 
