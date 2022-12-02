@@ -1,9 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { InView, useInView } from "react-intersection-observer";
+import React, { useRef } from 'react';
+import { InView } from "react-intersection-observer";
 import '../index.css'
-
-
-
 import img1 from '../assets/images/slider/andres-vera-CmmYT6Mm948-unsplash 1.png'
 import img2 from '../assets/images/slider/andres-vera-CmmYT6Mm948-unsplash 1-1.png'
 import img3 from '../assets/images/slider/andres-vera-CmmYT6Mm948-unsplash 1-2.png'
@@ -15,101 +12,100 @@ import img8 from '../assets/images/slider/andres-vera-CmmYT6Mm948-unsplash 1-7.p
 
 
 const Slider = (props) => {
-
     const imgarray = [img1, img2, img3, img4, img5, img6, img7, img8]
     let mouseDownX = 0
     let oldScrollX = 0
-    let timerId
+    const timerId = useRef(null)
+    let sliderClicked = false
+    const slider = useRef(null);
 
-
-    const reff = useRef(null);
-
-    function num() {
-        reff.current.scrollLeft = + 101
-    }
-
-
-    function anim(inView) {
-        console.log(props)
-        let maxScrollX = reff.current.scrollWidth - reff.current.clientWidth
-        // scrollWidth 1863- clientWidth 374 = scrollLeft 1488
-        // console.log('maxScrollX', maxScrollX)
-
-        if (inView) {
-            clearTimeout(timerId)
-            let n = maxScrollX / 8
-            if (props.direction === 'down') {
-
-                clearTimeout(timerId)
-                timerId = setTimeout(function request() {
-                    oldScrollX = reff.current.scrollLeft+n
-                    reff.current.scroll({
-                        left: reff.current.scrollLeft + n,
-                        top: 0,
-                        behavior: 'smooth'
-                    })
-                    
-                    if (reff.current.scrollLeft < maxScrollX && inView) {
-                        timerId = setTimeout(request, 1000)
-                    }
-                    else {
-                        clearTimeout(timerId)
-                    }
-                }, 1000)
-            } else {
-
-                clearTimeout(timerId)
-                timerId = setTimeout(function request() {
-                    oldScrollX = reff.current.scrollLeft+n
-                    reff.current.scroll({
-                        left: reff.current.scrollLeft - n,
-                        top: 0,
-                        behavior: 'smooth'
-                    })
-                    
-                    if (reff.current.scrollLeft > 0 && inView) {
-                        timerId = setTimeout(request, 1000)
-                    }
-                    else {
-                        clearTimeout(timerId)
-                    }
-                }, 1000)
+    const incrementCounter = () => {
+        let maxScrollX = slider.current.scrollWidth - slider.current.clientWidth
+        let n = maxScrollX / 8
+        if (props.direction === 'down') {
+            oldScrollX = slider.current.scrollLeft + n
+            slider.current.scroll({
+                left: slider.current.scrollLeft + n,
+                top: 0,
+                behavior: 'smooth'
+            })
+            if (slider.current.scrollLeft < maxScrollX) {
+                timerId.current = setTimeout(() => incrementCounter(), 1000);
             }
+            else { resetCounter() }
+        }
+        if (props.direction === 'up') {
+            oldScrollX = slider.current.scrollLeft - n
+            slider.current.scroll({
+                left: slider.current.scrollLeft - n,
+                top: 0,
+                behavior: 'smooth'
+            })
+            if (slider.current.scrollLeft > 0) {
+                timerId.current = setTimeout(() => incrementCounter(), 1000);
+            }
+            else {
+                resetCounter()
+            }
+        }
+    };
+
+    const resetCounter = () => {
+        clearTimeout(timerId.current);
+        timerId.current = null;
+    };
+
+    async function sliderAnimation(inView) {
+        if (inView) {
+            timerId.current = setTimeout(() => incrementCounter(), 1000);
         } else {
-            clearTimeout(timerId)
+            resetCounter()
         }
     }
     return (
         <div className='mt-[10%] w-full    mb-[100px] '
-            onDrag={(e) => {
-                e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX
+            onDragStart={(e) => e.preventDefault()}
+            // onDrag={(e) => {
+            //     // e.target.previousElementSibling.style.opacity = '0';
+            //     console.log(e)
+            //     e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX
+            // }}
+            // onDragEnd={(e) => {
+            //     e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX
+            //     oldScrollX = e.target.parentNode.scrollLeft
+            // }}
+            onMouseDown={(e) => {
+                resetCounter()
+                mouseDownX = e.clientX
+                sliderClicked = true
             }}
-            onDragEnd={(e) => {
+            onMouseUpCapture={(e) => {
+                sliderClicked = false
                 e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX
                 oldScrollX = e.target.parentNode.scrollLeft
             }}
-            onMouseDown={(e) => {
-                clearTimeout(timerId)
-                mouseDownX = e.clientX
+            onMouseMove={(e) => {
+                if (sliderClicked) { e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX }
             }}
 
         >
             <div className='uppercase 
             text-[30px]  
             px-[5%] 
-            laptop:pl-[10%]
+            laptop:pl-[10vw]
             font-[600]
             orchidea
             '>   Lorem ipsum dolor sit amet</div>
-            <InView onChange={(inView) => anim(inView)}>
-                <div ref={reff} className='mt-[5%]
+
+            <InView onChange={(inView) => sliderAnimation(inView)}>
+                <div ref={slider} className='mt-[5%]
                  sliderNoScroll
                  flex overflow-x-auto 
                  px-[5%] laptop:px-[10%] 
                  gap-[25px]
                  '>
                     {imgarray.map(x => {
-                        return <img className='w-[55vw] laptop:w-[]   select-none ' key={x} src={x} alt={x} />
+                        return <img className='w-[55vw] laptop:w-[19vw]   select-none ' key={x} src={x} alt={x} />
                     })}
                 </div>
             </InView>

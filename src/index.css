@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 
-
-
-
 .orchidea{
   font-family: Orchidea;
 }
@@ -14,14 +11,12 @@
   color:black
 }
 
-
 body::-webkit-scrollbar{
   width: 0;
 }
 
+
 .sliderNoScroll::-webkit-scrollbar{
-  width: 0;
+width: 0;
+
 }
-
-
-

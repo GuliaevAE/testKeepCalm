@@ -1,59 +1,51 @@
 import { useState, useEffect } from 'react'
-
 import './App.css'
 import deskr1 from './assets/images/julia-unsplash1.png'
 import deskr2 from './assets/images/taisiia-unsplash1.png'
 import deskr3 from './assets/images/julia-unsplash.png'
 import deskr4 from './assets/images/taisiia-unsplash.png'
-
 import Slider from './components/Slider'
 import Description from './components/Description'
 
 
 function App() {
   let oldScrollFromTop = 0
-  let [direction, setDirection] = useState('down') 
+  let [direction, setDirection] = useState('down')
 
-
-  const handleScroll =(e)=>{
-    // console.log(e.srcElement.scrollingElement.scrollTop)
-    // console.log(direction)
-    if(e.srcElement.scrollingElement.scrollTop>oldScrollFromTop){
-      setDirection('down')
-    }
-    if(e.srcElement.scrollingElement.scrollTop<oldScrollFromTop){
-      setDirection('up')
-    }
+  const handleScroll = (e) => {
+    if (e.srcElement.scrollingElement.scrollTop > oldScrollFromTop) { setDirection('down') }
+    if (e.srcElement.scrollingElement.scrollTop < oldScrollFromTop) { setDirection('up') }
     oldScrollFromTop = e.srcElement.scrollingElement.scrollTop
   }
 
-
-  useEffect(()=>{
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-  },[])
+  }, [])
 
 
   return (
-    <div className="App" onScroll={(e)=>console.log(window.onscroll)}>
+    <div className="App">
       <div className='
-        w-[fit-content] 
-        mt-[15vh] mb-[8vh]   
-        laptop:mt-[12vh] 
-        laptop:mb-[6vh] 
-        mx-[auto] 
-        px-[5%] '>
+        
+        mt-[18vh] mb-[8vh]   
+        laptop:mt-[19vh] 
+        laptop:mb-[9vh] 
+        mx-[5%]
+         laptop:mx-[10vw] '>
         <span className=' 
           uppercase 
+          leading-[40px]
           text-[30px] 
           font-[600] 
           orchidea'>ut aliquip ex ea commodo consequat</span>
       </div>
       <Description image1={deskr1} image2={deskr2} />
-      <Slider direction={direction}/>
-      <div className='w-[fit-content]
+      <Slider direction={direction} />
+      <div className='
         my-[60px] 
         mx-[auto]
-        px-[5%] '>
+        mx-[5%]
+        laptop:mx-[10vw] '>
         <span className='
           uppercase 
           text-[30px] 
@@ -61,8 +53,6 @@ function App() {
           orchidea'>ut aliquip ex ea commodo consequat</span>
       </div>
       <Description image1={deskr3} image2={deskr4} />
-
-
     </div>
   )
 }
