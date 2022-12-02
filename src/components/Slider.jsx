@@ -65,6 +65,7 @@ const Slider = (props) => {
     return (
         <div className='mt-[10%] w-full    mb-[100px] '
             onDragStart={(e) => e.preventDefault()}
+            onClick={(e)=>e.preventDefault()}
             onMouseDown={(e) => {
                 resetCounter()
                 mouseDownX = e.clientX
@@ -72,7 +73,7 @@ const Slider = (props) => {
             }}
             onMouseUp={(e) => {
                 sliderClicked = false
-                e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX
+                // e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX
                 oldScrollX = e.target.parentNode.scrollLeft
             }}
             onMouseMove={(e) => {
