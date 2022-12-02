@@ -74,6 +74,7 @@ const Slider = () => {
             text-[30px]  
             px-[5%] 
             laptop:pl-[10%]
+            font-[600]
             orchidea
             '>   Lorem ipsum dolor sit amet</div>
 

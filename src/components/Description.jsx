@@ -12,21 +12,22 @@ const Description = ({ image1, image2 }) => {
                 <div className='
                 laptop:w-[50%] 
                 min-h-[350px] 
-                bg-cover ' style={{ backgroundImage: `url(${image1})` }} />
+                bg-cover ' src={image1} style={{ backgroundImage: `url(${image1})` }} />
                 <div className='
                 laptop:w-[40%]   
                 py-[5%]
                 px-[5%]
+                my-[auto]
                 laptop:px-[0] '>
                     <div className='
                     flex 
                     flex-col '>
                         <span className='
-                        text-[30px] 
+                        text-[30px] font-[600] 
                         orchidea'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit
                         </span>
-                        <span>
+                        <span className='text-[18px]'>
                             Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
                         </span>
@@ -52,10 +53,11 @@ const Description = ({ image1, image2 }) => {
                     flex-col '>
                         <span className='
                         text-[30px] 
+                        font-[600]
                         orchidea'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit
                         </span>
-                        <span>
+                        <span className='text-[18px]'>
                             Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
                         </span>
@@ -64,7 +66,7 @@ const Description = ({ image1, image2 }) => {
                 <div className='
                 laptop:w-[40%] 
                 min-h-[350px] 
-                bg-cover' style={{ backgroundImage: `url(${image2})` }} />
+                bg-cover' src={image2} style={{ backgroundImage: `url(${image2})` }} />
             </div>
         </>
     );

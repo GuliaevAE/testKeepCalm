@@ -15,8 +15,8 @@ function App() {
 
   return (
     <div className="App">
-      <div className='w-[fit-content]  my-[60px] mx-[auto] px-[5%]'>
-        <span className=' uppercase text-[30px] orchidea'>ut aliquip ex ea commodo consequat</span>
+      <div className='w-[fit-content]  my-[5%] mx-[auto] px-[5%]'>
+        <span className=' uppercase text-[30px] font-[600] orchidea'>ut aliquip ex ea commodo consequat</span>
       </div>
 
      
@@ -26,7 +26,7 @@ function App() {
       <Slider/>
 
       <div className='w-[fit-content]  my-[60px] mx-[auto]'>
-        <span className=' uppercase text-[30px] orchidea'>ut aliquip ex ea commodo consequat</span>
+        <span className=' uppercase text-[30px] font-[600] orchidea'>ut aliquip ex ea commodo consequat</span>
       </div>
 
       <Description image1={deskr3} image2={deskr4}/>
