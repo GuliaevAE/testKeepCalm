@@ -1,0 +1,15 @@
+.header{
+    box-sizing: border-box;
+    height: 70px;
+   padding: 20px 5vw;
+
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(0deg, #464341 0%, #010101 100%);
+}
+
+.header span{
+    font-family: 'Manrope';
+    color: white;
+    font-size:20px;
+}
