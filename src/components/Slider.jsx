@@ -65,21 +65,13 @@ const Slider = (props) => {
     return (
         <div className='mt-[10%] w-full    mb-[100px] '
             onDragStart={(e) => e.preventDefault()}
-            // onDrag={(e) => {
-            //     // e.target.previousElementSibling.style.opacity = '0';
-            //     console.log(e)
-            //     e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX
-            // }}
-            // onDragEnd={(e) => {
-            //     e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX
-            //     oldScrollX = e.target.parentNode.scrollLeft
-            // }}
+           
             onMouseDown={(e) => {
                 resetCounter()
                 mouseDownX = e.clientX
                 sliderClicked = true
             }}
-            onMouseUpCapture={(e) => {
+            onMouseUp={(e) => {
                 sliderClicked = false
                 e.target.parentNode.scrollLeft = oldScrollX + mouseDownX - e.clientX
                 oldScrollX = e.target.parentNode.scrollLeft
@@ -102,10 +94,10 @@ const Slider = (props) => {
                  sliderNoScroll
                  flex overflow-x-auto 
                  px-[5%] laptop:px-[10%] 
-                 gap-[25px]
+                 gap-[20px]
                  '>
                     {imgarray.map(x => {
-                        return <img className='w-[55vw] laptop:w-[19vw]   select-none ' key={x} src={x} alt={x} />
+                        return <img className='w-[55vw] laptop:w-[19vw]  select-none ' key={x} src={x} alt={x} />
                     })}
                 </div>
             </InView>
