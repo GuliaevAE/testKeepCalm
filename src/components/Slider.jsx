@@ -82,10 +82,11 @@ const Slider = () => {
                 <div ref={reff} className='mt-[5%]
                  scroll-smooth laptop:scroll-[none]  
                  flex overflow-x-auto 
-                 pl-[5%] laptop:pl-[10%] 
-                 pr-[10%]'>
+                 px-[5%] laptop:px-[10%] 
+                 gap-[25px]
+                 '>
                     {imgarray.map(x => {
-                        return <img className=' pointer-events-none mr-[25px] select-none ' key={x} src={x} alt={x} />
+                        return <img className='w-[55vw] laptop:w-[] pointer-events-none  select-none ' key={x} src={x} alt={x} />
                     })}
                 </div>
             </InView>

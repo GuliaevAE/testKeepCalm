@@ -13,9 +13,7 @@
 :root{
   color:black
 }
-body{
-  margin: 0;
-}
+
 
 body::-webkit-scrollbar{
   width: 0;

@@ -1,15 +1,18 @@
-.header{
-    box-sizing: border-box;
+.header {
+    
     height: 70px;
-   padding: 20px 5vw;
-
+    padding: 20px 5vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     background: linear-gradient(0deg, #464341 0%, #010101 100%);
 }
 
-.header span{
+.header span {
     font-family: 'Manrope';
     color: white;
-    font-size:20px;
+    font-size: 20px;
 }

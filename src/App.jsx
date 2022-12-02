@@ -11,27 +11,36 @@ import Description from './components/Description'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <div className='w-[fit-content] my-[15%]  laptop:my-[5%] mx-[auto] px-[5%]'>
-        <span className=' uppercase text-[30px] font-[600] orchidea'>ut aliquip ex ea commodo consequat</span>
+      <div className='
+        w-[fit-content] 
+        mt-[15vh] mb-[8vh]   
+        laptop:mt-[12vh] 
+        laptop:mb-[6vh] 
+        mx-[auto] 
+        px-[5%] '>
+        <span className=' 
+          uppercase 
+          text-[30px] 
+          font-[600] 
+          orchidea'>ut aliquip ex ea commodo consequat</span>
       </div>
-
-     
-
-      <Description image1={deskr1} image2={deskr2}/>
-
-      <Slider/>
-
-      <div className='w-[fit-content]  my-[60px] mx-[auto]'>
-        <span className=' uppercase text-[30px] font-[600] orchidea'>ut aliquip ex ea commodo consequat</span>
+      <Description image1={deskr1} image2={deskr2} />
+      <Slider />
+      <div className='w-[fit-content]
+        my-[60px] 
+        mx-[auto]
+        px-[5%] '>
+        <span className='
+          uppercase 
+          text-[30px] 
+          font-[600] 
+          orchidea'>ut aliquip ex ea commodo consequat</span>
       </div>
+      <Description image1={deskr3} image2={deskr4} />
 
-      <Description image1={deskr3} image2={deskr4}/>
 
-      
     </div>
   )
 }
