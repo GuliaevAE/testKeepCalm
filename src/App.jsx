@@ -43,9 +43,8 @@ function App() {
       <Slider direction={direction} />
       <div className='
         my-[60px] 
-        mx-[auto]
         mx-[5%]
-        laptop:mx-[10vw] '>
+        laptop:mx-[10vw]'>
         <span className='
           uppercase 
           text-[30px] 
